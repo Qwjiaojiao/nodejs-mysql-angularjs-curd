@@ -1,0 +1,39 @@
+
+<!Doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta property="qc:admins" content="465267610762567726375" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+	<title>登录</title>
+  <link rel='dns-prefetch' href='//s.w.org' />
+  <link rel="canonical" href="http://www.runoob.com/nodejs/node-js-get-post.html" />
+
+</head>
+<body>
+   <table>
+     <h1>提交成功</h1>
+<%=title%>
+
+<table border="1" align="center"><span style="font-size:24px;color:#006600;"></span>  
+	<caption align="top">用户信息</caption>  
+	 <tr>
+		 <td width="50">id</td>   
+		 <td width="50">用户名</td>   
+		 <td width="50">密码</td>  
+		 <td width="50">删除</td>  
+	 </tr>  
+	 <% for(var i=0; i<queryresult.length;i++){%>
+		<tr>
+			 <td width="50"><%= queryresult[i].id %></td>   
+			 <td width="50"><%= queryresult[i].username %></td>   
+			 <td width="50"><%= queryresult[i].password %></td>  
+			 <td width="50"><a href="./delete?id=<%= queryresult[i].id %>" >删除</a></td>  
+		 </tr> 
+	<%}%>
+</table>  
+ 
+  
+</table>  
+</body>
+</html>

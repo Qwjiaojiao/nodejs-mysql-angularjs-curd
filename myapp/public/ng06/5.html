@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 依赖注入：DI dependence inject 耦合
+    function demos() {
+        console.log('ok');
+    }
+
+    function test() {
+        demo();
+    }
+    // test()的正确执行必须依赖demo()
+    // test();
+
+    // 将demos注入到fun1中
+    function fun1(param) {
+        param();
+    }
+    fun1(demos);
+    fun1(demo);
+    </script>
+</body>
+
+</html>

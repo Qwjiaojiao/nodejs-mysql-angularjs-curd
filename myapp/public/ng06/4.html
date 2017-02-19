@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestModule">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+</head>
+
+<body ng-controller="TestController">
+    <!-- input的值发生变化（不管有没有angularJS，input都会发生变化），同时改变了username模型的值 -->
+    <input type="text" name="username" ng-model="username">
+    <h3>{{username}}</h3>
+    <h3>{{username}}</h3>
+    <script>
+    // 1.定义模块
+    var TestModule = angular.module('TestModule', []);
+
+    // 2.定义控制器
+    TestModule.controller('TestController', function($scope) {
+        // 改变模型，可以改变视图(h3标签内容)
+        $scope.username = 'zhangfan';
+    })
+    </script>
+</body>
+
+</html>

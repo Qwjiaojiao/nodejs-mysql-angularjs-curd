@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<form action="" name="order" method="post">
+	<fieldset>
+		<legend>Order Details</legend>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>编码</th>
+					<th>描述</th>
+					<th>输入</th>
+					<th>价格</th>
+					<th>小记</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="product_code" value="COMP01">
+					</td>
+					<td>iPhone 6s 金色 64G</td>
+					<td><input type="number" data-price="399.99" name="quantity" value="" min="0" max="99" maxlength="2">
+					</td>
+					<td>$399.99</td>
+					<td>
+						<output name="item_total" class="item_total">$0.00</output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="product_code" value="COMP01">
+					</td>
+					<td>iPhone 6s 金色 64G</td>
+					<td><input type="number" data-price="399.99" name="quantity" value="" min="0" max="99" maxlength="2" required>
+					</td>
+					<td>$399.99</td>
+					<td>
+						<output name="item_total" class="item_total">$0.00</output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="product_code" value="COMP01">
+					</td>
+					<td>iPhone 6s 金色 64G</td>
+					<td><input type="number" data-price="399.99" name="quantity" value="" min="0" max="99" maxlength="2">
+					</td>
+					<td>$399.99</td>
+					<td>
+						<output name="item_total" class="item_total">$0.00</output>
+					</td>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th colspan="5">
+						<output type="text" id="order_total">$0.00</output>
+						<input type="submit" value="提交订单">
+						<input type="submit" id="saveOrder" value="保存订单信息" formnovalidate formaction="/save">
+					</th>
+				</tr>
+			</tfoot>
+		</table>
+	</fieldset>
+	</form>
+
+	<script src="app.js"></script>
+</body>
+</html>

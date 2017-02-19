@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="num1" id="num1">
+    <input type="number" name="num2" id="num2">
+    <h3 id="res"></h3>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+    $('#num1').keyup(function() {
+        // 计算
+        $('#res').html($(this).val() * $('#num2').val());
+    })
+
+    $('#num2').keyup(function() {
+        // 计算
+        $('#res').html($(this).val() * $('#num1').val());
+    })
+    </script>
+</body>
+
+</html>

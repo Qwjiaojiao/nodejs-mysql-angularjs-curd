@@ -1,0 +1,42 @@
+
+<!Doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta property="qc:admins" content="465267610762567726375" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+	<title>登录</title>
+  <link rel='dns-prefetch' href='//s.w.org' />
+  <link rel="canonical" href="http://www.runoob.com/nodejs/node-js-get-post.html" />
+<script src="./javascripts/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+     <p><a href="/registerinit">注册</a></p>
+     <p><a href="/list">查询</a></p>
+     <p><a href="/logininit">登录</a></p>
+     <p><a href="javascript:void(0)" id = 'ajaxid'>ajax</a></p>
+<script>
+$(function(){
+    $('#ajaxid').on('click',function(){
+        var ajax_url = "/ajax";
+                $.ajax({
+                    url : ajax_url,
+                    type : "GET",
+                    dataType : "json",
+                    data : "",
+                    cache : false,
+                    async : true,
+                    success : function(json) {
+                        console.log(json);
+                    },
+                    timeout : 12000,
+                    error : function() {
+                        console.log('网络异常，请稍后重试！');
+                    }
+                });
+            });
+});
+</script>
+</body>
+</html>

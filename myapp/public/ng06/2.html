@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- 1.给表单添加name属性和novalidate属性 -->
+    <!-- novalidate:不需要HTML自带验证直接通过：将验证交给angular做 -->
+    <form action="" name="login" method="post" novalidate>
+        用户名：
+        <!-- 2.给input添加name，ng-model，pattern，required等规则 -->
+        <input type="email" name="email" ng-model="email" value="" required>
+        <input type="submit" value="提交">
+    </form>
+    <!-- 3.直接通过$valid来判断用户名是否合法 -->
+    <h3>用户名格式正确$valid：{{login.email.$valid}}</h3>
+    <h3>用户名格式不正确$invalid：{{login.email.$invalid}}</h3>
+    <h3>用户名未修改为真$pristine：{{login.email.$pristine}}</h3>
+    <h3>用户名已经被修改过为真$dirty：{{login.email.$dirty}}</h3>
+    <h3>用户名没有填写为真{{login.email.$error.required}}</h3>
+    <!-- 用户名填写之后消失-->
+</body>
+
+</html>

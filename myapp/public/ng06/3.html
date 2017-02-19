@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <style>
+    .error {
+        color: red;
+    }
+    
+    .success {
+        color: green;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="" name="login" method="post" novalidate>
+        用户名：
+        <input type="text" name="username" ng-model="uname" value="" pattern="[0-9]{4,6}" required>
+        <span ng-show="login.username.$valid" ng-class="{success:login.username.$valid}">用户名正确</span>
+        <span ng-show="login.username.$invalid && login.username.$dirty" ng-class="{error:login.username.$invalid && login.username.$dirty}">用户名格式不正确</span>
+        <span ng-show="login.username.$pristine">请输入你的用户名</span>
+    </form>
+    <!-- 3.直接通过$valid来判断用户名是否合法 -->
+    <h3>用户名格式正确$valid：{{login.username.$valid}}</h3>
+    <h3>用户名格式不正确$invalid：{{login.username.$invalid}}</h3>
+    <h3>用户名未修改为真$pristine：{{login.username.$pristine}}</h3>
+    <h3>用户名已经被修改过为真$dirty：{{login.username.$dirty}}</h3>
+    <h3>用户名没有填写为真{{login.username.$error.required}}</h3>
+    <!-- 用户名填写之后消失-->
+</body>
+
+</html>

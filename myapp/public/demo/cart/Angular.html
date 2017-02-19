@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的购物车</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+</head>
+
+<body ng-app="app">
+    <table width="800" border="1" ng-controller="ShopController">
+        <tr>
+            <th>
+                <input type="checkbox" name="" ng-model="checkAll" ng-click="click()" ng-checked="check">
+            </th>
+            <th>编号</th>
+            <th>商品</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="shop in shoplist">
+            <td>
+                <input type="checkbox" ng-model="shop.done" ng-checked="checkAll">
+            </td>
+            <td>{{shop.id}}</td>
+            <td>{{shop.title}}</td>
+            <td>{{shop.price}}</td>
+            <td>
+                <!-- $index:就是当前shoplist的下标 -->
+                <button ng-click="jian($index)">-</button>
+                <input type="number" ng-model="shop.num" name="">
+                <button ng-click="jia($index)">+</button>
+            </td>
+            <td>{{shop.num * shop.price}}</td>
+            <td>
+                <button ng-click="del($index)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">总数量:{{total.sum}}</td>
+            <td colspan="3">总价格:{{total.price}}</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+    // 1.创建模块
+    var app = angular.module('app', []);
+
+    // 2.创建控制器
+    app.controller('ShopController', function($scope) {
+        // 定义商品的列表
+        $scope.shoplist = [{
+            id: 1,
+            title: 'iPHone 7S',
+            price: 5999,
+            num: 10,
+            done: false
+        }, {
+            id: 2,
+            title: 'iPHone 8S',
+            price: 3999,
+            num: 6,
+            done: false
+        }, {
+            id: 3,
+            title: 'iPHone 9S',
+            price: 1999,
+            num: 10,
+            done: false
+        }, {
+            id: 4,
+            title: 'iPHone 10S',
+            price: 2999,
+            num: 8,
+            done: false
+        }, {
+            id: 5,
+            title: 'iPHone 11S',
+            price: 999,
+            num: 10,
+            done: false
+        }, {
+            id: 6,
+            title: 'iPHone 12S',
+            price: 699,
+            num: 20,
+            done: false
+        }];
+
+        // 商品的++:让商品的数量进行++，后面的所有的小计和总价格数量，自动完成
+        $scope.jia = function(index) {
+            // 将对应下标的商品的数据++
+            $scope.shoplist[index]['num']++;
+        }
+
+        // --
+        $scope.jian = function(index) {
+            // 将对应下标的商品的数据++
+            $scope.shoplist[index]['num']--;
+        }
+
+        $scope.getTotal = function() {
+            // 总价格总数量
+            $scope.total = {
+                sum: 0,
+                price: 0
+            };
+
+            angular.forEach($scope.shoplist, function(value, key) {
+                // 问一下：商品是否被选中
+                if (value['done']) { // 选中，则计算总价格
+                    $scope.total.sum += value['num'];
+                    $scope.total.price += value['num'] * value['price'];
+                }
+            })
+
+        }
+
+        $scope.$watch('shoplist', function() {
+            $scope.getTotal();
+
+            var mark = true;
+            angular.forEach($scope.shoplist, function(value, key) {
+                if (value['done'] == false) {
+                    $scope.check = false;
+                    mark = false;
+                }
+            })
+            if (mark) {
+                $scope.check = true;
+            }
+        }, true);
+
+        // 删除
+        $scope.del = function(index) {
+            $scope.shoplist.splice(index, 1);
+        }
+
+        // 全选和全不选发生点击的时候
+        $scope.click = function() {
+            console.log($scope.checkAll);
+            angular.forEach($scope.shoplist, function(value, key) {
+                value['done'] = $scope.checkAll;
+            })
+        }
+    });
+    </script>
+</body>
+
+</html>

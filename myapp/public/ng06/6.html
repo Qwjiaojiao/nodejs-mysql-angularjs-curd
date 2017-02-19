@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- bootstrap.min.css是一个内置了大量css样式的文件 -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- 1.引入文件 -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <!-- 2.指定路由 -->
+                    <a href="#/" class="list-group-item">我的首页</a>
+                    <a href="#/shop" class="list-group-item">列表页</a>
+                    <a href="#/cart" class="list-group-item">购物车</a>
+                </div>
+            </div>
+            <!-- 3.ng-view -->
+            <div class="col-md-9" ng-view>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

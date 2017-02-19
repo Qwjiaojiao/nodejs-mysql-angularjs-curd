@@ -1,0 +1,8 @@
+[
+	{"id":1,"title":"臭豆腐","price":3.99,"num":1,"img":"images/1.jpg"},
+	{"id":2,"title":"豆腐干","price":1.99,"num":1,"img":"images/2.jpg"},
+	{"id":3,"title":"豆腐脑","price":2.99,"num":1,"img":"images/3.jpg"},
+	{"id":4,"title":"豆腐乳","price":10.99,"num":1,"img":"images/4.jpg"},
+	{"id":5,"title":"豆腐块","price":7.99,"num":1,"img":"images/5.jpg"},
+	{"id":6,"title":"豆浆","price":1.99,"num":1,"img":"images/5.jpg"}
+]

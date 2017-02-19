@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr1 = [{username:"zhangsan"}];
+
+		var arr2 = [];
+
+		arr2.push(arr1[0]);
+
+
+		// arr1[0]和arr2[0]的都是对象，属于引用关系，一个改变，另外一个跟着改变
+		arr1[0]['username'] = 'lisi';
+
+		console.log(arr2);
+	</script>
+</body>
+</html>
